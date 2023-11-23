@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <video id="player" playsinline controls>
+            <source id="sourceLink"/>
+        </video>
+        <cite>Playing: <a href="" id="dlLink">dfgdfg</a></cite>
+    </main>
+
+
+    <script>
+        // Parse the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const linkUrl = urlParams.get('dl');
+
+        // Change the url Value
+        const dlLink = document.getElementById('dlLink');
+        dlLink.textContent = linkUrl;
+        const videoUrl = document.getElementById("sourceLink")
+        videoUrl.src = linkUrl
+    </script>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script>
+        const player = new Plyr('#player');
+    </script>
+</body>
+</html>
